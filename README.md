@@ -5,7 +5,7 @@ With descending priority:
 - Have solutions run in reasonable time
 - Use a different language for each day
 - If the above fails, use a different presentation for the language from before (e. g. local HTML site vs. console output)
-- If applicable, get the code running in an environment similar to a real device/deployment environment (e. g. QEMU)
+- If applicable, get the code running in an environment similar to a real device/deployment environment (e. g. QEMU, after the code is done in ol' reliable [RARS](https://github.com/TheThirdOne/rars))
 - Document the process used to get the code running if it's interesting.
 - Come up with nice algorithms
 - Come up with optimal (with respect to space/time complexity) algorithms
