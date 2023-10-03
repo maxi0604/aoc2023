@@ -23,7 +23,7 @@ Ideas for languages, in no particular order:
 - [ ] Go
 - [ ] Haskell
 - [ ] Java
-- [ ] JavaScript
+- [ ] TypeScript
 - [ ] Julia
 - [ ] Kotlin
 - [ ] Lua
