@@ -30,12 +30,12 @@ Ideas for languages, in no particular order:
 - [ ] OCaml
 - [ ] One of the Lisps (Probably Common Lisp)
 - [ ] PHP
+- [ ] Pascal
 - [ ] Python
 - [ ] RISC-V Assembler
 - [ ] Rust
 - [ ] Scala
 - [ ] x86-64 Assembler
-- [ ] Pascal
 
 ## Resources
 - https://wiki.freepascal.org/Basic_Pascal_Tutorial/Contents
