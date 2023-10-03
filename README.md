@@ -23,7 +23,6 @@ Ideas for languages, in no particular order:
 - [ ] Go
 - [ ] Haskell
 - [ ] Java
-- [ ] TypeScript
 - [ ] Julia
 - [ ] Kotlin
 - [ ] Lua
@@ -35,7 +34,11 @@ Ideas for languages, in no particular order:
 - [ ] RISC-V Assembler
 - [ ] Rust
 - [ ] Scala
+- [ ] TypeScript
+- [ ] VHDL
 - [ ] x86-64 Assembler
+
+Note that there are more languages than days here. This is deliberate.
 
 ## Resources
 - https://wiki.freepascal.org/Basic_Pascal_Tutorial/Contents
