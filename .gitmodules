@@ -1,0 +1,4 @@
+[submodule "aoc23-impl"]
+	path = aoc23-impl
+	url = git@github.com:maxi0604/aoc23-impl.git
+	branch = main
