@@ -11,11 +11,13 @@ With descending priority:
 - Come up with optimal (with respect to space/time complexity) algorithms
 
 Ideas for languages, in no particular order:
+- [x] C
+- [x] x86-64 Assembler
 - [ ] ARM Assembler
 - [ ] Ada
-- [x] C
 - [ ] C#
 - [ ] C++
+- [ ] COBOL
 - [ ] D
 - [ ] Elixir
 - [ ] Erlang
@@ -31,12 +33,14 @@ Ideas for languages, in no particular order:
 - [ ] PHP
 - [ ] Pascal
 - [ ] Python
+- [ ] R
 - [ ] RISC-V Assembler
 - [ ] Rust
 - [ ] Scala
 - [ ] TypeScript
 - [ ] VHDL
-- [x] x86-64 Assembler
+- [ ] Zig
+- [ ] Zsh
 
 Note that there are more languages than days here. This is deliberate.
 
