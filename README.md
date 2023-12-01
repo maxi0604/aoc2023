@@ -13,7 +13,7 @@ With descending priority:
 Ideas for languages, in no particular order:
 - [ ] ARM Assembler
 - [ ] Ada
-- [ ] C
+- [x] C
 - [ ] C#
 - [ ] C++
 - [ ] D
@@ -36,12 +36,14 @@ Ideas for languages, in no particular order:
 - [ ] Scala
 - [ ] TypeScript
 - [ ] VHDL
-- [ ] x86-64 Assembler
+- [x] x86-64 Assembler
 
 Note that there are more languages than days here. This is deliberate.
 
 ## Resources
 - https://wiki.freepascal.org/Basic_Pascal_Tutorial/Contents
 - https://theintobooks.wordpress.com/2019/12/28/hello-world-on-risc-v-with-qemu/
-## The license
+## License
 I don't know what you'd be using this for, but if you must: AGPLv3 or later.
+## Log
+- d1: Finished part 1 with `x86-64 Assembly`, part 2 was becoming too depressing, so I wrote `C` instead. (Wow, wouldn't have expected to ever consider C as an upgrade...)
