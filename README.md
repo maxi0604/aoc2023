@@ -9,6 +9,8 @@ With descending priority:
 - Document the process used to get the code running if it's interesting.
 - Come up with nice algorithms
 - Come up with optimal (with respect to space/time complexity) algorithms
+## Non-goals
+- Write 
 
 Ideas for languages, in no particular order:
 - [x] C
@@ -38,6 +40,7 @@ Ideas for languages, in no particular order:
 - [ ] Rust
 - [ ] Scala
 - [ ] TypeScript
+- [ ] Uiua
 - [ ] VHDL
 - [ ] Zig
 - [ ] Zsh
