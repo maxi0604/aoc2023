@@ -14,6 +14,7 @@ main = do
     print parsed
     --
     print $ sumLegal parsed
+    print $ sum $ map (product . minForGame) parsed
     return ()
 
 -- All elements fulfil condition and at least one exists.
@@ -42,6 +43,9 @@ maxLegal = map maximum . transpose
 
 gameIsLegal :: Game -> Bool
 gameIsLegal a = all (uncurry (<=)) (zip (maxLegal a) [12, 13, 14])
+
+minForGame :: Game -> [Int]
+minForGame = map maximum . transpose
 
 sumLegal :: [Game] -> Int
 sumLegal = sum . map fst . filter (gameIsLegal . snd) . enum1
