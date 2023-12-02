@@ -37,11 +37,8 @@ parsePair [b, "blue"] = [0, 0, read b]
 type Game = [[Int]]
 type RawGame = [[[String]]]
 
-maxLegal :: Game -> [Int]
-maxLegal = map maximum . transpose
-
 gameIsLegal :: Game -> Bool
-gameIsLegal a = all (uncurry (<=)) (zip (maxLegal a) [12, 13, 14])
+gameIsLegal a = all (uncurry (<=)) (zip (minForGame a) [12, 13, 14])
 
 minForGame :: Game -> [Int]
 minForGame = map maximum . transpose
