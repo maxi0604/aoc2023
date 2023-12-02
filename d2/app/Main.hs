@@ -15,7 +15,6 @@ main = do
     --
     print $ sumLegal parsed
     print $ sum $ map (product . minForGame) parsed
-    return ()
 
 -- All elements fulfil condition and at least one exists.
 all' :: (a -> Bool) -> [a] -> Bool
