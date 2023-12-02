@@ -9,11 +9,10 @@ With descending priority:
 - Document the process used to get the code running if it's interesting.
 - Come up with nice algorithms
 - Come up with optimal (with respect to space/time complexity) algorithms
-## Non-goals
-- Write 
 
 Ideas for languages, in no particular order:
 - [x] C
+- [x] Haskell
 - [x] x86-64 Assembler
 - [ ] ARM Assembler
 - [ ] Ada
@@ -25,7 +24,6 @@ Ideas for languages, in no particular order:
 - [ ] Erlang
 - [ ] F#
 - [ ] Go
-- [ ] Haskell
 - [ ] Java
 - [ ] Julia
 - [ ] Kotlin
@@ -54,3 +52,4 @@ Note that there are more languages than days here. This is deliberate.
 I don't know what you'd be using this for, but if you must: AGPLv3 or later.
 ## Log
 - d1: Finished part 1 with `x86-64 Assembly`, part 2 was becoming too depressing, so I wrote `C` instead. (Wow, wouldn't have expected to ever consider C as an upgrade...)
+- d2: Finished part 1 and 2 with `Haskell`. After wasting way to much time on unsuccessfully trying to understand parser combinators, I just wrote a minor abomination using `splitOn`. The actual tasks were quite fun to implement (It's always fun to get to use `transpose`), however.
