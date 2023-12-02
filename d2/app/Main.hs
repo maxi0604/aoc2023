@@ -24,7 +24,7 @@ parseLine :: RawGame -> Game
 parseLine = map parseTriple
 
 lexLine :: String -> RawGame
-lexLine = map (map (splitOn " ")) . map (splitOn ", ") . splitOn "; " . last . splitOn ": "
+lexLine = map (map (splitOn " ") . splitOn ", ") . splitOn "; " . last . splitOn ": "
 
 parseTriple :: [[String]] -> [Int]
 parseTriple = map sum . transpose . map parsePair
