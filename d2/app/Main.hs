@@ -6,7 +6,7 @@ import Data.List.Split
 
 main :: IO ()
 main = do
-    content <- readFile "/dev/stdin"
+    content <- getContents
     let linesOfFile = lines content
     let lexed = map lexLine linesOfFile
     print lexed
