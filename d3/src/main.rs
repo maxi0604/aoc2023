@@ -1,8 +1,12 @@
 use std::{io, str, cmp::{max, min}};
 
 fn main() {
-    let arr: Vec<Vec<u8>> = io::stdin().lines().map(|x| x.unwrap().bytes().collect()).collect();
+    let mut arr: Vec<Vec<u8>> = io::stdin().lines().map(|x| x.unwrap().bytes().collect()).collect();
 
+    for sub in arr.iter_mut() {
+        sub.push(b'.');
+        sub.insert(0, b'.')
+    }
     let mut count = 0;
     for i in 0..arr.len() {
         let mut start = 0;
@@ -13,9 +17,7 @@ fn main() {
                     start = j;
                     inside = true;
                 }
-            }
-
-            if inside && (!(arr[i][j] as char).is_digit(10) || j == arr[i].len() - 1) {
+            } else if inside {
                 let num: u64 = str::parse(str::from_utf8(&arr[i][start..j]).expect("evil non utf-8. dafuq?")).expect("you done messed up, a-aron");
                 if look_for_surrounding(&arr, i, start, j) {
                     count += num;
