@@ -1,11 +1,18 @@
-use std::{io, str, cmp::{max, min}, collections::HashMap};
+use std::{
+    cmp::{max, min},
+    collections::HashMap,
+    io, str,
+};
 
 type Field = Vec<Vec<u8>>;
 type GearList = HashMap<(usize, usize), Vec<u64>>;
 
 fn main() {
     println!("p2");
-    let mut arr: Vec<Vec<u8>> = io::stdin().lines().map(|x| x.unwrap().bytes().collect()).collect();
+    let mut arr: Vec<Vec<u8>> = io::stdin()
+        .lines()
+        .map(|x| x.unwrap().bytes().collect())
+        .collect();
     let mut hm = HashMap::new();
 
     for sub in arr.iter_mut() {
@@ -23,7 +30,9 @@ fn main() {
                     inside = true;
                 }
             } else if inside {
-                let num: u64 = str::parse(str::from_utf8(&arr[i][start..j]).expect("evil non utf-8. dafuq?")).expect("you done messed up, a-aron");
+                let num: u64 =
+                    str::parse(str::from_utf8(&arr[i][start..j]).expect("evil non utf-8. dafuq?"))
+                        .expect("you done messed up, a-aron");
                 search_and_store_gear(&arr, &mut hm, num, i, start, j);
                 inside = false;
             }
@@ -31,11 +40,22 @@ fn main() {
     }
 
     dbg!(&hm);
-    let result: u64 = hm.values().filter(|x| x.len() == 2).map(|x| x[0] * x[1]).sum();
+    let result: u64 = hm
+        .values()
+        .filter(|x| x.len() == 2)
+        .map(|x| x[0] * x[1])
+        .sum();
     println!("result: {result}");
 }
 
-fn search_and_store_gear(arr: &Field, store: &mut GearList, num: u64, i: usize, start: usize, end: usize) {
+fn search_and_store_gear(
+    arr: &Field,
+    store: &mut GearList,
+    num: u64,
+    i: usize,
+    start: usize,
+    end: usize,
+) {
     for di in -1..=1 {
         let row = i as isize + di;
         if row < 0 || row as usize >= arr.len() {

@@ -1,7 +1,13 @@
-use std::{io, str, cmp::{max, min}};
+use std::{
+    cmp::{max, min},
+    io, str,
+};
 
 fn main() {
-    let mut arr: Vec<Vec<u8>> = io::stdin().lines().map(|x| x.unwrap().bytes().collect()).collect();
+    let mut arr: Vec<Vec<u8>> = io::stdin()
+        .lines()
+        .map(|x| x.unwrap().bytes().collect())
+        .collect();
 
     for sub in arr.iter_mut() {
         sub.push(b'.');
@@ -18,17 +24,21 @@ fn main() {
                     inside = true;
                 }
             } else if inside {
-                let num: u64 = str::parse(str::from_utf8(&arr[i][start..j]).expect("evil non utf-8. dafuq?")).expect("you done messed up, a-aron");
+                let num: u64 =
+                    str::parse(str::from_utf8(&arr[i][start..j]).expect("evil non utf-8. dafuq?"))
+                        .expect("you done messed up, a-aron");
                 if look_for_surrounding(&arr, i, start, j) {
                     count += num;
-                    println!("counted ({start}, {i}) -> ({j}, {i}), representing {num}, sum = {count}");
-                }
-                else {
-                    println!("skipped ({start}, {i}) -> ({j}, {i}), representing {num}, sum = {count}");
+                    println!(
+                        "counted ({start}, {i}) -> ({j}, {i}), representing {num}, sum = {count}"
+                    );
+                } else {
+                    println!(
+                        "skipped ({start}, {i}) -> ({j}, {i}), representing {num}, sum = {count}"
+                    );
                 }
                 inside = false;
             }
-
         }
     }
     println!("result: {count}");
