@@ -49,6 +49,7 @@ Note that there are more languages than days here. This is deliberate.
 - https://wiki.freepascal.org/Basic_Pascal_Tutorial/Contents
 - https://theintobooks.wordpress.com/2019/12/28/hello-world-on-risc-v-with-qemu/
 - https://uclibc.org/docs/psABI-x86_64.pdf
+- http://ocamlverse.net/content/monadic-parsers-angstrom.html
 ## License
 I don't know what you'd be using this for, but if you must: AGPLv3 or later.
 ## Log
