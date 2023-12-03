@@ -17,7 +17,7 @@ fn main() {
         let mut start = 0;
         let mut inside = false;
         for j in 0..arr[i].len() {
-            if (arr[i][j] as char).is_digit(10) {
+            if (arr[i][j] as char).is_ascii_digit() {
                 if !inside {
                     start = j;
                     inside = true;
@@ -49,7 +49,7 @@ fn search_and_store_gear(arr: &Field, store: &mut GearList, num: u64, i: usize, 
         for col in start..end {
             let c = arr[row][col] as char;
             if c == '*' {
-                store.entry((row, col)).or_insert(vec![]).push(num);
+                store.entry((row, col)).or_default().push(num);
             }
         }
     }

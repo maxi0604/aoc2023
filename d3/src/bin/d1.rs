@@ -12,7 +12,7 @@ fn main() {
         let mut start = 0;
         let mut inside = false;
         for j in 0..arr[i].len() {
-            if (arr[i][j] as char).is_digit(10) {
+            if (arr[i][j] as char).is_ascii_digit() {
                 if !inside {
                     start = j;
                     inside = true;
@@ -48,7 +48,7 @@ fn look_for_surrounding(arr: &Vec<Vec<u8>>, i: usize, start: usize, end: usize) 
         println!("{}", str::from_utf8(&arr[row][start..end]).unwrap());
         for col in start..end {
             let c = arr[row][col] as char;
-            if !c.is_digit(10) && c != '.' {
+            if !c.is_ascii_digit() && c != '.' {
                 found = true;
             }
         }
