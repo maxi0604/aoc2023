@@ -37,15 +37,7 @@ inner:
     jnz       delay               ; 10s digit was read already. store last dig in [digit] only.
     mov       rbx, 10
     mul       rbx                     ; shift left one digit otherwise
-    ; mov       rdi, printf_str        ; printf
-    ; mov       rsi, rax
-    ; xor       rax, rax
-    ; call      printf
     add       [result], rax
-    ; mov       rdi, printf_str        ; printf
-    ; mov       rsi, [result]
-    ; xor       rax, rax
-    ; call      printf
     delay:
     inc       byte [flag]                   ; bump flag to read ones digit next.
     jmp       inner
@@ -60,20 +52,6 @@ quit:
     mov       rsi, [result]
     xor       rax, rax
     call      printf
-    ; output_loop:                 ; write base 10 number to out
-    ;     div       rbx
-    ;     add       dx, 48
-    ;     mov       [rcx], dx
-    ;     sub       rcx, 1
-    ;     cmp       rax, 0
-    ;     jnz       output_loop
-    ;
-    ;           mov       rax, 1                  ; system call for write
-    ;           mov       rdi, 1                  ; file handle 1 is stdout
-    ;           mov       rsi, out_str            ; address of string to output
-    ;           mov       rdx, 15                 ; number of bytes
-    ;           syscall                           ; write out_str
-
     mov       rax, 60                 ; system call for exit
     xor       rdi, rdi                ; exit code 0
     syscall                           ; invoke operating system to exit
