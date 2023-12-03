@@ -9,7 +9,7 @@ type GearList = HashMap<(usize, usize), Vec<u64>>;
 
 fn main() {
     println!("p2");
-    let mut arr: Vec<Vec<u8>> = io::stdin()
+    let mut arr: Field = io::stdin()
         .lines()
         .map(|x| x.unwrap().bytes().collect())
         .collect();
