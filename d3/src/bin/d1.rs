@@ -1,4 +1,4 @@
-use std::{io, str, cmp::{max, min}, collections::HashMap};
+use std::{io, str, cmp::{max, min}};
 
 fn main() {
     let mut arr: Vec<Vec<u8>> = io::stdin().lines().map(|x| x.unwrap().bytes().collect()).collect();
@@ -54,32 +54,5 @@ fn look_for_surrounding(arr: &Vec<Vec<u8>>, i: usize, start: usize, end: usize) 
         }
     }
 
-    // if start > 0 && arr[i][start - 1] != b'.' {
-    //     return true;
-    // }
-    //
-    // if arr[i][end] != b'.' {
-    //     return true;
-    // }
     found
-}
-
-fn search_and_store_gear(arr: Vec<Vec<u8>>, store: &mut HashMap<(usize, usize), Vec<u64>>, num: u64, i: usize, start: usize, end: usize) {
-    for di in -1..=1 {
-        let row = i as isize + di;
-        if row < 0 || row as usize >= arr.len() {
-            continue;
-        }
-        let row = row as usize;
-
-        let start = max(0, start as isize - 1) as usize;
-        let end = min(end + 1, arr[i].len());
-        println!("{}", str::from_utf8(&arr[row][start..end]).unwrap());
-        for col in start..end {
-            let c = arr[row][col] as char;
-            if c == '*' {
-                store.entry((row, col)).or_insert(vec![]).push(num);
-            }
-        }
-    }
 }
