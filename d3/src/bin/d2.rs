@@ -1,7 +1,7 @@
 use std::{
     cmp::{max, min},
     collections::HashMap,
-    io, str,
+    io, str
 };
 
 type Field = Vec<Vec<u8>>;
@@ -13,6 +13,7 @@ fn main() {
         .lines()
         .map(|x| x.unwrap().bytes().collect())
         .collect();
+
     let mut hm = HashMap::new();
 
     for sub in arr.iter_mut() {
@@ -39,12 +40,12 @@ fn main() {
         }
     }
 
-    dbg!(&hm);
     let result: u64 = hm
         .values()
         .filter(|x| x.len() == 2)
         .map(|x| x[0] * x[1])
         .sum();
+    // dbg!(&hm);
     println!("result: {result}");
 }
 
@@ -65,7 +66,7 @@ fn search_and_store_gear(
 
         let start = max(0, start as isize - 1) as usize;
         let end = min(end + 1, arr[i].len());
-        println!("{}", str::from_utf8(&arr[row][start..end]).unwrap());
+        // println!("{}", str::from_utf8(&arr[row][start..end]).unwrap());
         for col in start..end {
             let c = arr[row][col] as char;
             if c == '*' {
