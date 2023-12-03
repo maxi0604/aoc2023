@@ -64,8 +64,7 @@ fn look_for_surrounding(arr: &Vec<Vec<u8>>, i: usize, start: usize, end: usize) 
     found
 }
 
-fn search_and_store_gear(arr: Vec<Vec<u8>>, store: HashMap<(usize, usize), Vec<u8>>, num: u64, i: usize, start: usize, end: usize) -> bool {
-    let mut found = false;
+fn search_and_store_gear(arr: Vec<Vec<u8>>, store: &mut HashMap<(usize, usize), Vec<u64>>, num: u64, i: usize, start: usize, end: usize) {
     for di in -1..=1 {
         let row = i as isize + di;
         if row < 0 || row as usize >= arr.len() {
@@ -79,17 +78,8 @@ fn search_and_store_gear(arr: Vec<Vec<u8>>, store: HashMap<(usize, usize), Vec<u
         for col in start..end {
             let c = arr[row][col] as char;
             if c == '*' {
-                found = true;
+                store.entry((row, col)).or_insert(vec![]).push(num);
             }
         }
     }
-
-    // if start > 0 && arr[i][start - 1] != b'.' {
-    //     return true;
-    // }
-    //
-    // if arr[i][end] != b'.' {
-    //     return true;
-    // }
-    found
 }
