@@ -13,6 +13,7 @@ With descending priority:
 Ideas for languages, in no particular order:
 - [x] C
 - [x] Haskell
+- [x] Rust
 - [x] x86-64 Assembler
 - [ ] ARM Assembler
 - [ ] Ada
@@ -35,7 +36,6 @@ Ideas for languages, in no particular order:
 - [ ] Python
 - [ ] R
 - [ ] RISC-V Assembler
-- [ ] Rust
 - [ ] Scala
 - [ ] TypeScript
 - [ ] Uiua
@@ -51,5 +51,6 @@ Note that there are more languages than days here. This is deliberate.
 ## License
 I don't know what you'd be using this for, but if you must: AGPLv3 or later.
 ## Log
-- d1: Finished part 1 with `x86-64 Assembly`, part 2 was becoming too depressing, so I wrote `C` instead. (Wow, wouldn't have expected to ever consider C as an upgrade...)
-- d2: Finished part 1 and 2 with `Haskell`. After wasting way to much time on unsuccessfully trying to understand parser combinators, I just wrote a minor abomination using `splitOn`. The actual tasks were quite fun to implement (It's always fun to get to use `transpose`), however.
+- d1: Finished part 1 with **x86-64 Assembly**, part 2 was becoming too depressing, so I wrote **C** instead. (Wow, wouldn't have expected to ever consider C as an upgrade...)
+- d2: Finished part 1 and 2 with **Haskell**. After wasting way too much time on unsuccessfully trying to understand parser combinators, I just wrote a minor abomination using `splitOn`. The actual tasks were quite fun to implement (It's always fun to get to use `transpose`), however.
+- d3: Wrote both parts in **Rust**. For part 1, I spent way too much time trying to debug some off-by-one error at the end of a line. Fixed it by just padding each line with dots internally. Part 2 went over easily. Using multiple binaries in the same crate made it really pleasant to split the code for both parts. The fact that rust considers a `String` to be valid UTF-8 could be worked around easily by just storing the input as bytes and converting to `&str` where needed.
