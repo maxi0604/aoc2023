@@ -14,8 +14,8 @@ Ideas for languages, in no particular order:
 - [x] C
 - [x] Haskell
 - [x] Rust
-- [x] x86-64 Assembler
-- [ ] ARM Assembler
+- [x] x86-64 Assembly
+- [ ] ARM Assembly
 - [ ] Ada
 - [ ] C#
 - [ ] C++
@@ -35,7 +35,7 @@ Ideas for languages, in no particular order:
 - [ ] Pascal
 - [ ] Python
 - [ ] R
-- [ ] RISC-V Assembler
+- [ ] RISC-V Assembly
 - [ ] Scala
 - [ ] TypeScript
 - [ ] Uiua
