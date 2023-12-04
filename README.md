@@ -21,6 +21,8 @@ Ideas for languages, in no particular order:
 - [ ] C#
 - [ ] C++
 - [ ] COBOL
+- [ ] Clojure
+- [ ] Common Lisp
 - [ ] D
 - [ ] Elixir
 - [ ] Erlang
@@ -30,7 +32,6 @@ Ideas for languages, in no particular order:
 - [ ] Julia
 - [ ] Kotlin
 - [ ] Lua
-- [ ] One of the Lisps (Probably Common Lisp)
 - [ ] PHP
 - [ ] Pascal
 - [ ] Python
