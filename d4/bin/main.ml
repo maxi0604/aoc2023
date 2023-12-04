@@ -14,8 +14,8 @@ let game_line = (word *> spaces *> number <* colon <* spaces) >>= fun num -> man
 
 let hits (_, card, draw) = List.count draw ~f:(fun x -> (List.mem card x ~equal:Int.equal))
 let score = function
-| x when (x - 1 >= 0) -> Int.pow 2 x
-| _ -> 0
+| 0 -> 0
+| x -> Int.pow 2 (x - 1)
 
 let main =
     let lines = In_channel.input_lines In_channel.stdin in
