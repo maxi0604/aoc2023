@@ -10,7 +10,7 @@ let colon = take 1 >>| (function | ":" -> fun () -> return () | _ -> fun () -> f
 let pipe = take 1 >>| (function | "|" -> fun () -> return () | _ -> fun () -> fail "Expected '|'")
 let number = digits >>= fun k -> (Stdlib.int_of_string_opt k) |> (function | Some i -> return i | None -> fail "Expected number")
 
-let game_line = (word *> spaces *> number <* colon <* spaces) >>= fun num -> many (number <* spaces) <* pipe <* spaces >>= fun card -> many (number <* spaces) >>= fun draw -> return ((num : int), (card : int list), (draw : int list))
+let game_line = (word *> spaces *> number <* colon <* spaces) >>= fun num -> many (number <* spaces) <* pipe <* spaces >>= fun card -> many (number <* spaces) >>= fun draw -> return (num, card, draw)
 
 let hits (_, card, draw) = List.count draw (fun x -> (List.mem card x Int.equal))
 let score = function
