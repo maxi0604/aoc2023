@@ -50,6 +50,7 @@ Note that there are more languages than days here. This is deliberate.
 - https://theintobooks.wordpress.com/2019/12/28/hello-world-on-risc-v-with-qemu/
 - https://uclibc.org/docs/psABI-x86_64.pdf
 - http://ocamlverse.net/content/monadic-parsers-angstrom.html
+- https://novaspec.org/cl/
 ## License
 I don't know what you'd be using this for, but if you must: AGPLv3 or later.
 ## Log
