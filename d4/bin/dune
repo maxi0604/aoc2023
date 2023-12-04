@@ -1,4 +1,4 @@
 (executable
  (public_name d4)
- (name main)
+ (name p2)
  (libraries d4 angstrom core))
