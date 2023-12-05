@@ -4,16 +4,16 @@ using System.Diagnostics;
 readonly record struct Mapping (
     string Source,
     string Target,
-    int SourceBegin,
-    int TargetBegin,
-    int Size
+    long SourceBegin,
+    long TargetBegin,
+    long Size
 );
 
 class Program {
     public static void Main(string[] argv) {
         var lines = Console.In.ReadToEnd().Split(Environment.NewLine);
-        int[] seeds = lines[0].Split(":")[1].Split(" ", StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries).Select(x => int.Parse(x)).ToArray();
-        List<((string, string), List<(int, int, int)>)> mappings = new();
+        long[] seeds = lines[0].Split(":")[1].Split(" ", StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries).Select(x => long.Parse(x)).ToArray();
+        List<((string, string), List<(long, long, long)>)> mappings = new();
         Console.WriteLine("read seeds: " + string.Join(", ", seeds));
 
         // Start at third line.
@@ -29,19 +29,19 @@ class Program {
                 Console.WriteLine($"src: {src}, dst: {dst}");
                 mappings.Add(((src, dst), new()));
             } else {
-                int[] map = line.Split(" ", StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries).Select(x => int.Parse(x)).ToArray();
+                long[] map = line.Split(" ", StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries).Select(x => long.Parse(x)).ToArray();
                 Trace.Assert(!string.IsNullOrWhiteSpace(src) && !string.IsNullOrWhiteSpace(dst));
                 mappings.Last().Item2.Add((map[0], map[1], map[2]));
                 System.Console.WriteLine($"{map[1]}..{map[1] + map[2]} -> {map[0]}..{map[0] + map[2]}");
             }
         }
 
-        int min = int.MaxValue;
-        foreach (int seed in seeds) {
-            int cur = seed;
+        long min = long.MaxValue;
+        foreach (long seed in seeds) {
+            long cur = seed;
 
-            foreach((_, List<(int, int, int)> list) in mappings) {
-                foreach ((int dstI, int srcI, int len) in list) {
+            foreach((_, List<(long, long, long)> list) in mappings) {
+                foreach ((long dstI, long srcI, long len) in list) {
                     if (cur >= srcI && cur < srcI + len) {
                         Console.WriteLine($"{cur} -> {cur - srcI + dstI}");
                         cur = cur - srcI + dstI;
@@ -54,5 +54,6 @@ class Program {
             }
             Console.WriteLine($"mapped seed {seed} -> plot {cur}");
         }
+        Console.WriteLine($"min: {min}");
     }
 }
