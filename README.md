@@ -13,13 +13,13 @@ With descending priority:
 Ideas for languages, in no particular order:
 - [x] C
 - [x] C#
+- [x] C++
 - [x] Haskell
 - [x] OCaml
 - [x] Rust
 - [x] x86-64 Assembly
 - [ ] ARM Assembly
 - [ ] Ada
-- [ ] C++
 - [ ] COBOL
 - [ ] Clojure
 - [ ] Common Lisp
@@ -60,3 +60,4 @@ I don't know what you'd be using this for, but if you must: AGPLv3 or later.
 - d3: Wrote both parts in **🦀 Rust**. For part 1, I spent way too much time trying to debug some off-by-one error at the end of a line. Fixed it by just padding each line with dots internally. Part 2 went over easily. Using multiple binaries in the same crate made it really pleasant to split the code for both parts. The fact that rust considers a `String` to be valid UTF-8 could be worked around easily by just storing the input as bytes and converting to `&str` where needed. Hit the rate limit, after which it also doesn't ever tell you whether your attempts are too high or too low again (probably to prevent binary searching for the answer).
 - d4: Wrote both parts in **🐫 OCaml**. This took longer than it would if I hadn't also stubbornly decided that today is the day on which I finally grok parser combinators (See above). Wrote a parser combinator and fought with a weird "Why is that of that type" bug and finished part one on the first submission. For part 2, I don't really see the functional solution, so I wrote a `for` loop that mutates an `int array`. I still don't know the difference between `in`, `;` and `;;` precisely but it works. Also finished part 2 on first submission. I definitely want to combine more parsers in the future, maybe I'll try `Parsec` again now. I didn't bother with making it build both binaries today, so you'll have to manually change `d4/dune` to do that.
 - d5: Wrote both parts in **#️⃣ C#**. No complaints about the language, considering that it's a spiced up Java and my childhood programming language. Part 1 went over easily. Part 2 took forever because of my aversion to rewriting completely exactly when it would be the right time to do so, as well as imperative programming badness. All in all, got done though.
+- d6: Wrote both parts in **C++** (in a bar on my tablet :D). Bruteforce was way fast enough. Had integer overflow on part 2.
