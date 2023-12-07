@@ -16,14 +16,62 @@ function doTheThing() {
     console.log("did the thing");
     let textField = document.getElementById("in");
     let lines = textField.value.split("\n");
+    let values = [];
+
     for (const line of lines) {
-        let parsed = line.split(" ");
-        if (parsed.length < 2) {
-            continue;
+        let lexed = line.split(" ");
+        if (lexed.length < 2) {
+            setErr(`Invalid line: "${line}"`);
+            return;
         }
-        let sorted = Array.from(parsed[0]).sort().join("");
+
+        values.push([judge(lexed[0]), Number(lexed[1])]);
     }
 
+    values.sort();
 
+    let curRank = 1;
+    let curScore = 0;
+    let curSum = 0;
+    for (let i = 0; i < values.length; i++) {
+        if (values[i][0] > curScore) {
+            curScore = values[i][0];
+            curRank++;
+        }
+
+        curSum += curRank * values[i][1];
+    }
+
+    setResult(curSum);
+}
+
+function setResult(res) {
+    document.getElementById("result").innerText = `Result: ${res}`;
+}
+
+function setErr(err) {
+    document.getElementById("result").innerText = `Error: ${err}`;
+}
+function judge(str) {
+    let sorted = Array.from(str).sort().join("");
+    if (sorted.match(/(.)\1{4}/))
+        return 5;
+
+    if (sorted.match(/(.)\1{3}/))
+        return 4;
+
+    if (sorted.match(/(.)\1{2}(.)\2/) || sorted.match(/(.)\1(.)\2{2}/))
+        return 3;
+
+    if (sorted.match(/(.)\1{2}/))
+        return 2;
+
+    if (sorted.match(/(.)\1(.)\2/) || sorted.match(/(.)\1.(.)\2/))
+        return 2;
+
+    if (sorted.match(/(.)\1(.)\2/))
+        return 1;
+
+    return 0;
 }
 animate();
