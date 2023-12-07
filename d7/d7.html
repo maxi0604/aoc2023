@@ -7,13 +7,31 @@
         <link href="style.css" rel="stylesheet">
     </head>
     <body>
-        <p>
-            <strong>Advent of Code 2023: Day 7</strong>
-        </p>
-        <div id="annoying-animation"></div>
-        <p><textarea id="in" name="Draws" rows="25" cols="80"></textarea></p>
-        <p><button onclick="doTheThing();">Calculate</button></p>
-        <p id="result"></p>
+        <div class="header">
+            <strong>🎄Advent of Code 2023</strong>
+            <div class="day">Day 7</div>
+        </div>
+
+        <div class="content">
+            <div id="annoying-animation"></div>
+            <p>
+            <h1>Camel Calculator</h1>
+            <h2>Mode</h2>
+            <label>
+                <input type="radio" id="part1" name="select" value="HTML">
+                Part 1 (J = <strong>Jack</strong>)
+            </label>
+            <label>
+                <input type="radio" id="part2" name="select" value="HTML">
+                Part 2 (J = <strong>Joker</strong>)
+            </label>
+            </p>
+            <h2>Input</h2>
+            <p><textarea id="in" name="Draws" rows="25"></textarea></p>
+            <p><button onclick="doTheThing();">Calculate</button></p>
+            <h2>Result</h2>
+            <p id="result">...</p>
+        </div>
         <script src="d7.js"></script>
     </body>
 </html>

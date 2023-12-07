@@ -1,11 +1,11 @@
 @keyframes movedown {
-  from {
-    top: -10%;
-  }
+    from {
+        top: -10%;
+    }
 
-  to {
-    top: 100%;
-  }
+    to {
+        top: 100%;
+    }
 }
 
 .flake {
@@ -20,5 +20,30 @@
 }
 
 body {
-    font-family: sans-serif;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+.content {
+    max-width: 700px;
+    margin: auto;
+}
+
+.header {
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-top: 20px;
+    display: flex;
+}
+
+.day {
+    margin-left: auto;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+#in {
+    resize: none;
+    width: 100%;
 }
