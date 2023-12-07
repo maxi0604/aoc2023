@@ -17,6 +17,7 @@
     animation-iteration-count: infinite;
     animation-direction: normal;
     animation-timing-function: linear;
+    user-select: none;
 }
 
 body {
