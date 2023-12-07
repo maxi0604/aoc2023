@@ -1,0 +1,24 @@
+@keyframes movedown {
+  from {
+    top: -10%;
+  }
+
+  to {
+    top: 100%;
+  }
+}
+
+.flake {
+    pointer-events: none;
+    position: fixed;
+    z-index: 10000;
+    animation-duration: 15s;
+    animation-name: movedown;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-timing-function: linear;
+}
+
+body {
+    font-family: sans-serif;
+}
