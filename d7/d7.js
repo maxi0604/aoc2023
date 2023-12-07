@@ -15,7 +15,7 @@ let letterToNum = {
 };
 
 function animate() {
-    for (let i = 0; i < 500; i++) {
+    for (let i = 0; i < 250; i++) {
         let parent = document.getElementById("annoying-animation");
         let flake = document.createElement("div");
         flake.classList.add("flake");
