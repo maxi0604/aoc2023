@@ -15,10 +15,10 @@ Ideas for languages, in no particular order:
 - [x] C#
 - [x] C++
 - [x] Haskell
+- [x] JavaScript + HTML + CSS
 - [x] OCaml
 - [x] Rust
 - [x] x86-64 Assembly
-- [ ] JavaScript + HTML + CSS
 - [ ] ARM Assembly
 - [ ] Ada
 - [ ] COBOL
