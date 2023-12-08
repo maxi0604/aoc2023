@@ -17,6 +17,7 @@ Ideas for languages, in no particular order:
 - [x] Haskell
 - [x] JavaScript + HTML + CSS
 - [x] OCaml
+- [x] Python
 - [x] Rust
 - [x] x86-64 Assembly
 - [ ] ARM Assembly
@@ -35,7 +36,6 @@ Ideas for languages, in no particular order:
 - [ ] Lua
 - [ ] PHP
 - [ ] Pascal
-- [ ] Python
 - [ ] R
 - [ ] RISC-V Assembly
 - [ ] Scala
