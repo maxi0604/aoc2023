@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-import sys, re
+import sys, re, math
 
 def main():
     instrs = input()
     map = dict()
+    dp = dict()
     for line in sys.stdin:
         line = line.strip()
         match = re.match(r"(\w+) = \((\w+), (\w+)\)", line)
@@ -15,12 +16,19 @@ def main():
         pass
 
     cur = [x for x in map.keys() if re.search("A$", x)]
+    curResult = [0 for x in range(len(cur))]
     count = 0
     print(f"{count} {cur}")
-    while not all([re.search("Z$", x) for x in cur]):
-        if count % 1000 == 0:
-            print(f"{count} {cur}")
+    while not all(curResult):
+        # if count % 1000 == 0:
+        print(f"{count} {cur}")
         for i in range(len(cur)):
+            if curResult[i]:
+                continue
+
+            if re.search("Z$", cur[i]):
+                curResult[i] = count
+
             (l, r) = map[cur[i]]
 
             if instrs[count % len(instrs)] == 'L':
@@ -32,6 +40,7 @@ def main():
 
         count += 1
     print(f"{count} {cur}")
+    print(f"{curResult} lcm: {math.lcm(*curResult)}")
 
 if __name__ == "__main__":
     main()
