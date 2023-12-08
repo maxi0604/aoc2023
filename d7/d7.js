@@ -21,7 +21,7 @@ function animate() {
         flake.classList.add("flake");
         flake.innerText = "❄️";
         flake.style.left = `${Math.random() * 100}vw`;
-        flake.style.animationDuration = `${Math.random() * 7 + 5}vw`;
+        flake.style.animationDuration = `${Math.random() * 3 + 13}s`;
         flake.style.animationDelay = `${-15 * Math.random()}s`;
         parent.appendChild(flake);
     }
