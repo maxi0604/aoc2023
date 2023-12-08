@@ -64,7 +64,7 @@ executable d2
     -- other-extensions:
 
     -- Other library packages from which modules are imported.
-    build-depends:    base ^>=4.17.1.0, megaparsec, text, split
+    build-depends:    base, text, split
 
     -- Directories containing source files.
     hs-source-dirs:   app
