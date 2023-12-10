@@ -1,9 +1,16 @@
+fun flipAfter(a: Char, b: Char): Boolean {
+    return when {
+        a == 'L' && b == '7' -> true
+        a == 'F' && b == 'J' -> true
+        else -> false
+    }
+}
 fun main(args: Array<String>) {
     println("Hello World!")
     val lines = generateSequence(::readLine).map { it.toCharArray() }.toList()
     var part = Array(lines.size) { BooleanArray(lines[0].size) }
-    var x = 0;
-    var y = 0;
+    var x = 0
+    var y = 0
     println("count: ${lines.count()}")
 
     for (iy in 0..<lines.count()) {
@@ -11,8 +18,8 @@ fun main(args: Array<String>) {
             if (lines[iy][ix] =='S') {
                 println("(ix, iy): ($ix, $iy), cur: ${lines[iy][ix]}")
 
-                x = ix;
-                y = iy;
+                x = ix
+                y = iy
                 // break@outer
             }
         }
@@ -20,14 +27,13 @@ fun main(args: Array<String>) {
 
 
     // HACK: Hardcode going down once initially. Works on sample and main input.
-    part[y][x] = true;
-    var dir = Dir.Down;
-    ++y;
+    part[y][x] = true
+    var dir = Dir.Down
 
-    while (lines[y][x] != 'S') {
-        part[y][x] = true;
+     do {
+        part[y][x] = true
         println("(x, y): ($x, $y), dir: $dir, cur: ${lines[y][x]}")
-
+        // lines[y][x] = '#'
         x = when(dir) {
             Dir.Left -> x - 1
             Dir.Right -> x + 1
@@ -40,7 +46,7 @@ fun main(args: Array<String>) {
             else -> y
         }
 
-        val cur = lines[y][x];
+        val cur = lines[y][x]
 
         dir = when {
             dir == Dir.Left && cur == 'L' -> Dir.Up
@@ -51,55 +57,51 @@ fun main(args: Array<String>) {
             dir == Dir.Up && cur == '7' -> Dir.Left
             dir == Dir.Left && cur == 'F' -> Dir.Down
             dir == Dir.Up && cur == 'F' -> Dir.Right
-            else -> dir;
-        };
-    }
+            else -> dir
+        }
+    } while (lines[y][x] != 'S')
 
-    println("with loop");
-    for (line in lines) {
-        println(String(line))
-    }
+    // More strikingly, in all cases 'S' can be replaced by 'F'
+    lines[y][x] = 'F'
 
-    var nestSize = 0;
-    for (line in lines) {
-        var inside = false;
+    println("with loop")
 
-        for (i in line.indices) {
-            val c = line[i];
-            if (c == '#')
-                inside = !inside;
-            else if (c == '.' && inside) {
-                ++nestSize;
-                line[i] = 'N';
+
+    var nestSize = 0
+    for (j in lines.indices) {
+        var inside = false
+        var pair = '.'
+
+        for (i in lines[j].indices) {
+            val c = lines[j][i]
+            if (part[j][i]) {
+                if (c == '|')
+                    inside = !inside
+                else if (flipAfter(pair, c)) {
+                    println("flip: $pair $c")
+                    inside = !inside
+                    pair = '.'
+                }
+                else if (c == 'L' || c == 'J' || c == '7' || c == 'F') {
+                    pair = when (pair) {
+                        '.' -> c;
+                        else -> '.';
+                    }
+                    println("set pair: $pair")
+                }
+            }
+
+            if (c == '.' && inside) {
+                ++nestSize
+                lines[j][i] = 'N'
             }
         }
+        println(String(lines[j]))
     }
-    println("with nest (row-major)");
+    println("with nest (row-major)")
     for (line in lines) {
         println(String(line))
     }
 
-    for (col in lines[0].indices) {
-        var inside = false;
-
-        for (row in lines.indices) {
-            val c = lines[row][col];
-            if (c == '#')
-                inside = !inside;
-            else if (c == 'N' && !inside) {
-                lines[row][col] = ',';
-                --nestSize;
-            }
-        }
-    }
-
-    println("with nest");
-    for (line in lines) {
-        println(String(line))
-    }
-
-    println("nest size: $nestSize");
-    // Try adding program arguments via Run/Debug configuration.
-    // Learn more about running applications: https://www.jetbrains.com/help/idea/running-applications.html.
-    println("Program arguments: ${args.joinToString()}")
+    println("nest size: $nestSize")
 }
