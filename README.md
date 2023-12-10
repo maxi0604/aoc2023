@@ -73,3 +73,7 @@ when ((dir, cur)) {
 }
 ```
 but there's an open issue about this and it can be worked around somewhat painlessly. (See code)
+
+Unrelated, but since GitHub limits the number of languages for which the percentage of the repository is calculated here's a screenshot from [onefetch](https://github.com/o2sh/onefetch) on day 10:
+
+![Screenshot from onefetch, showing ● C# (17.4 %) ● Kotlin (15.3 %) ● Rust (13.8 %) ● JavaScript (11.2 %) ● Python (6.7 %) ● C (5.9 %) ● Assembly (5.4 %) ● OCaml (5.2 %) ● CSS (4.4 %) ● HTML (3.8 %) ● Haskell (3.8 %) ● C++ (3.4 %) ● Julia (3.4 %) ● Zsh (0.3 %)](res/d10langs.png)
