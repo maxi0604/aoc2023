@@ -11,15 +11,16 @@ With descending priority:
 - Come up with optimal (with respect to space/time complexity) algorithms
 
 Ideas for languages, in no particular order:
-- [x] C
-- [x] C#
-- [x] C++
-- [x] Haskell
-- [x] JavaScript + HTML + CSS
-- [x] OCaml
-- [x] Python
-- [x] Rust
-- [x] x86-64 Assembly
+- [x] x86-64 Assembly (d1, p1)
+- [x] C (d1, p2)
+- [x] Haskell (d2)
+- [x] Rust (d3)
+- [x] OCaml (d4)
+- [x] C# (d5)
+- [x] C++ (d6)
+- [x] [JavaScript + HTML + CSS (d7)](https://maxi0604.github.io/aoc2023/d7)
+- [x] Python (d8)
+- [x] Julia (d9)
 - [ ] ARM Assembly
 - [ ] Ada
 - [ ] COBOL
@@ -31,7 +32,6 @@ Ideas for languages, in no particular order:
 - [ ] F#
 - [ ] Go
 - [ ] Java
-- [ ] Julia
 - [ ] Kotlin
 - [ ] Lua
 - [ ] PHP
@@ -64,3 +64,4 @@ I don't know what you'd be using this for, but if you must: AGPLv3 or later.
 - d6: Wrote both parts in **➕ C++** while not at home. Bruteforce was way fast enough. Had integer overflow on part 2.
 - d7: Had I known about the theme of this day beforehand, I would've reserved OCaml for it. Instead, I decided it would be fun to build a nice little page for it with **🌐 JavaScript, HTML and CSS**. While that probably took more time than actually writing the code, it was a fun experience. Also, I didn't think I'd be the one who falls for the "JavaScript `array.sort` meme" but here we are. I'd recommend to keep that in mind before you write JS. CSS and HTML were quite fun to write though and did show that some technical parts of the Internet are actually quite well-made. You can view the page [on GitHub pages.](https://maxi0604.github.io/aoc2023/d7) This also now means that this repository has a constant green CI checkmark since GitHub requires you set up a pipeline to publish static content directly without Jekyll. Maybe I'll set up CI for all the things at some point but maybe also not...
 - d8: This one was bad. I didn't start early enough and finished at 2023-12-**09**T00:34, breaking the streak. My solution for part 2 also isn't correct in general but only works when each path is a perfect loop. Still, got two stars with **🐍 Python**
+- d9: Sadly ending the streak and instead beginning the non-streak, I completed both parts of this one at 2023-12-**10**T16:06 in **∴ Julia**. This was a fun one though and the implementation, while leaving out obvious optimizations, ended up being pretty clean.
