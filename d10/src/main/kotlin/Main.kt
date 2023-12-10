@@ -9,22 +9,27 @@ fun main(args: Array<String>) {
     val lines = generateSequence(::readLine).toList()
     var x = 0;
     var y = 0;
-    outer@ for (iy in lines.indices) {
-        for (ix in lines[iy].indices) {
-            if (lines[y][x] =='S') {
+    println("count: ${lines.count()}")
+
+    for (iy in 0..<lines.count()) {
+        for (ix in 0..<lines[iy].length) {
+            if (lines[iy][ix] =='S') {
+                println("(ix, iy): ($ix, $iy), cur: ${lines[iy][ix]}")
+
                 x = ix;
                 y = iy;
-                break@outer
+                // break@outer
             }
         }
     }
 
     // HACK: Hardcode going down initially. Works on sample and main input.
     var dir = Dir.Down;
-    --x;
+    ++y;
 
     var count = 1;
     while (lines[y][x] != 'S') {
+        println("(x, y): ($x, $y), count: $count, dir: $dir, cur: ${lines[y][x]}")
         x = when(dir) {
             Dir.Left -> x - 1
             Dir.Right -> x + 1
@@ -54,7 +59,7 @@ fun main(args: Array<String>) {
         ++count;
     }
 
-    println("Count:  $count");
+    println("Count:  $count Result: ${count/2}");
     // Try adding program arguments via Run/Debug configuration.
     // Learn more about running applications: https://www.jetbrains.com/help/idea/running-applications.html.
     println("Program arguments: ${args.joinToString()}")
