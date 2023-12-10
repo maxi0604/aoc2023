@@ -61,8 +61,11 @@ fun main(args: Array<String>) {
         }
     } while (lines[y][x] != 'S')
 
-    // More strikingly, in all cases 'S' can be replaced by 'F'
-    lines[y][x] = 'F'
+    // More strikingly, in all cases 'S' can be replaced by 'F' or '7'
+    lines[y][x] = when (lines[y][x - 1]) {
+        'F', 'L', '-' -> '7'
+        else -> 'F'
+    }
 
     println("with loop")
 
@@ -90,8 +93,7 @@ fun main(args: Array<String>) {
                     println("set pair: $pair")
                 }
             }
-
-            if (c == '.' && inside) {
+            else if (inside) {
                 ++nestSize
                 lines[j][i] = 'N'
             }
