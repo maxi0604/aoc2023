@@ -10,7 +10,7 @@ With descending priority:
 - Come up with nice algorithms
 - Come up with optimal (with respect to space/time complexity) algorithms
 
-Ideas for languages, in no particular order:
+### Used already
 - [x] x86-64 Assembly (d1, p1)
 - [x] C (d1, p2)
 - [x] Haskell (d2)
@@ -21,6 +21,7 @@ Ideas for languages, in no particular order:
 - [x] [JavaScript + HTML + CSS (d7)](https://maxi0604.github.io/aoc2023/d7)
 - [x] Python (d8)
 - [x] Julia (d9)
+### Ideas
 - [ ] ARM Assembly
 - [ ] Ada
 - [ ] COBOL
