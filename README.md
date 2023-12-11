@@ -22,6 +22,7 @@ With descending priority:
 - [x] Python (d8)
 - [x] Julia (d9)
 - [x] Kotlin (d10)
+- [x] Java (d11)
 ### Ideas
 - [ ] ARM Assembly
 - [ ] Ada
@@ -33,7 +34,6 @@ With descending priority:
 - [ ] Erlang
 - [ ] F#
 - [ ] Go
-- [ ] Java
 - [ ] Lua
 - [ ] PHP
 - [ ] Pascal
@@ -65,9 +65,10 @@ MIT. Feel free to use the code presented here as e. g. a starting point for stru
 - d5: Wrote both parts in **#️⃣ C#**. No complaints about the language, considering that it's a spiced up Java and my childhood programming language. Part 1 went over easily. Part 2 took forever because of my aversion to rewriting completely exactly when it would be the right time to do so, as well as imperative programming badness. All in all, got done though.
 - d6: Wrote both parts in **➕ C++** while not at home. Bruteforce was way fast enough. Had integer overflow on part 2.
 - d7: Had I known about the theme of this day beforehand, I would've reserved OCaml for it. Instead, I decided it would be fun to build a nice little page for it with **🌐 JavaScript, HTML and CSS**. While that probably took more time than actually writing the code, it was a fun experience. Also, I didn't think I'd be the one who falls for the "JavaScript `array.sort` meme" but here we are. I'd recommend to keep that in mind before you write JS. CSS and HTML were quite fun to write though and did show that some technical parts of the Internet are actually quite well-made. You can view the page [on GitHub pages.](https://maxi0604.github.io/aoc2023/d7) This also now means that this repository has a constant green CI checkmark since GitHub requires you set up a pipeline to publish static content directly without Jekyll. Maybe I'll set up CI for all the things at some point but maybe also not...
-- d8: This one was bad. I didn't start early enough and finished at 2023-12-**09**T00:34, breaking the streak. My solution for part 2 also isn't correct in general but only works when each path is a perfect loop. Still, got two stars with **🐍 Python**
-- d9: Sadly continuing the anti-streak, I completed both parts of this one at 2023-12-**10**T16:06 in **∴ Julia**. This was a fun one though and the implementation, while leaving out obvious optimizations, ended up being pretty clean.
+- d8: This one was bad. I didn't start early enough and finished at 2023-12-**09**T00:34, almost breaking the streak. My solution for part 2 also isn't correct in general but only works when each path is a perfect loop. Still, got two stars with **🐍 Python**
+- d9: Sadly being really too late with this one, I completed both parts of this one at 2023-12-**10**T16:06 in **∴ Julia**. This was a fun one though and the implementation, while leaving out obvious optimizations, ended up being pretty clean.
 - d10: Rekindling the streak, I solved day 10 on day 10, using **🇰 Kotlin** for both parts. The language is indeed a nice upgrade over Java, given that you can actually do mindblowing things such as indexing into an array or initializing a 2D array in something that a reasonable programmer would put on one line. Getting Kotlin to run outside of its preffered environment (i. e. IntelliJ IDEA) proved too difficult for today though, so I just set up a run config for each input. Also, way too much time was spent not reading the fact that junk pipes also count as potential nest area. The actual algorithm for finding the area was not too difficult though. I would've wished for some more advanced pattern matching in the language, like
+- d11: Finished this after 00:00, however, I have decided to count a solution of being part of a streak if it was done before the next challenge is available. Today's solution is written in **☕ Java**, delivering programming language *somewhat-okayness* since 1995. After writing a solution to part 1 first try, I had to replace `int` with `long`, leading to `Point` becoming `Polong` initially. After fixing that, the solution worked smoothly though. I think few people would actually go for the inefficient solution for part 1 that requires you to rewrite in part 2, since modifying a data structure while iterating is a pain that we usually want to avoid.
 ```kotlin
 when ((dir, cur)) {
     (Dir.Left, 'J') -> Dir.Up
