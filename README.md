@@ -55,7 +55,7 @@ Note that there are more languages than days here. This is deliberate.
 - http://ocamlverse.net/content/monadic-parsers-angstrom.html
 - https://novaspec.org/cl/
 ## License
-MIT. Feel free to use the code presented here as a e. g. starting point for your solutions or other projects. Please do not copy the solutions verbatim or use this repository to cheat.
+MIT. Feel free to use the code presented here as e. g. a starting point for structuring your solutions or other projects. Please do not copy the solutions verbatim or use this repository to cheat.
 
 ## Log
 - d1: Finished part 1 with **🖥️ x86-64 Assembly**, part 2 was becoming too depressing, so I wrote **🇨 C** instead. (Wow, wouldn't have expected to ever consider C as an upgrade...)
