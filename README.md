@@ -55,7 +55,8 @@ Note that there are more languages than days here. This is deliberate.
 - http://ocamlverse.net/content/monadic-parsers-angstrom.html
 - https://novaspec.org/cl/
 ## License
-I don't know what you'd be using this for, but if you must: AGPLv3 or later.
+MIT. Feel free to use the code presented here as a e. g. starting point for your solutions or other projects. Please do not copy the solutions verbatim or use this repository to cheat.
+
 ## Log
 - d1: Finished part 1 with **🖥️ x86-64 Assembly**, part 2 was becoming too depressing, so I wrote **🇨 C** instead. (Wow, wouldn't have expected to ever consider C as an upgrade...)
 - d2: Finished part 1 and 2 with **λ Haskell**. After wasting way too much time on unsuccessfully trying to understand parser combinators, I just wrote a minor abomination using `splitOn`. The actual tasks were quite fun to implement (It's always fun to get to use `transpose`), however.
