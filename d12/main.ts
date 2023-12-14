@@ -7,6 +7,8 @@ const term = rl.createInterface({
     output: process.stdout,
 })
 
+let dp: Map<string, number> = new Map();
+
 function debug(obj: any) {
     if (env.DEBUG || env.TRACE)
         console.log("\t".repeat(indentLevel) + obj);
@@ -53,7 +55,17 @@ function checkCovered(field: string, nums: number[], stack: number[]) {
 }
 
 let indentLevel = 0;
+
 function recurse(nums: number[], numIdx: number, field: string, idx: number, stack: number[]) {
+    let dpKey = `${numIdx}|${idx}`;
+
+    let dpRes = dp.get(dpKey);
+
+    if (dpRes) { // im severely dpRes-sed
+        debug(`dp hit: ${dpRes} at ${idx} with len = ${nums[numIdx]}`);
+        return dpRes;
+    }
+
     if (nums.length == numIdx) {
         debug("checking final.");
         return checkCovered(field, nums, stack) ? 1 : 0;
@@ -71,6 +83,8 @@ function recurse(nums: number[], numIdx: number, field: string, idx: number, sta
             count += sub;
         }
     }
+
+    dp.set(dpKey, count);
     return count;
 }
 
@@ -82,12 +96,28 @@ function doTheThing(lines: string[]) {
         const nums = split[1].split(",").map(x => Number(x));
         let springs = split[0];
         let stack: number[] = [];
+        dp = new Map();
         // springs = ".............................................................." +  springs + "...................................................................";
         let res = recurse(nums, 0, springs, 0, stack);
         console.log(`${line} ${res}`);
         sum += res;
     }
     console.log(`sum: ${sum}`);
+
+    console.log("p2");
+    let sum2 = 0;
+    for (const line of lines) {
+        const split = line.trim().split(" ").filter(i => i);
+        const nums = Array(5).fill(split[1].split(",").map(x => Number(x))).flat();
+        let springs = Array(5).fill(split[0]).join("?");
+        console.log(springs, nums);
+        let stack: number[] = [];
+        dp = new Map();
+        let res = recurse(nums, 0, springs, 0, stack);
+        console.log(`${springs} ${nums} ${res}`);
+        sum2 += res;
+    }
+    console.log(`sum2: ${sum2}`);
 }
 
 let lines: string[] = [];

@@ -11,12 +11,12 @@ run:
 
 example:
     just build
-    < p1in.txt just run | less
+    < p1in.txt just run
 
 debug:
     just build
-    DEBUG=1 < p1in.txt just run | less
+    DEBUG=1 < p1in.txt just run
 
 trace:
     just build
-    TRACE=1 < p1in.txt just run | less
+    TRACE=1 < p1in.txt just run
