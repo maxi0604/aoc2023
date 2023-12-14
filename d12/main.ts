@@ -13,7 +13,7 @@ function debug(obj: any) {
 
 function checkFit(field: string, len: number, idx: number) {
     for (let i = idx; i < idx + len; ++i) {
-        if (i > field.length || field[i] == '.')
+        if (i >= field.length || field[i] == '.')
             return false;
     }
 
