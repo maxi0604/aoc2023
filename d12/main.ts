@@ -1,3 +1,4 @@
+import { env } from 'process';
 import * as rl from 'readline';
 
 const term = rl.createInterface({
@@ -5,8 +6,29 @@ const term = rl.createInterface({
     output: process.stdout,
 })
 
-function checkFit(field: string, len: number, idx: number) {
-    return !!field.slice(Math.max(idx - 1, 0), Math.min(idx + len + 1, field.length)).match(/^[.?][#?]+[.?]?$/);
+function debug(obj: any) {
+    if (env.DEBUG || env.TRACE)
+        console.log(obj);
+}
+
+function trace(obj: any) {
+    if (env.TRACE)
+        console.log(obj);
+}
+
+function checkFit(field: string, len: number, idx: number, last: boolean) {
+    for (let i = idx; i < idx + len; ++i) {
+        if (i > field.length || field[i] == '.')
+            return false;
+    }
+
+    if (idx > 0 && field[idx - 1] == '#')
+        return false;
+
+    if (idx + len < field.length && field[idx + len] == '#')
+        return false;
+
+    return true;
 }
 
 let indentLevel = 0;
@@ -17,11 +39,11 @@ function recurse(nums: number[], field: string, idx: number) {
 
     let count = 0;
     for (let i = idx; i < field.length; ++i) {
-        if (checkFit(field, nums[0], i)) {
+        if (checkFit(field, nums[0], i, nums.length == 1)) {
             indentLevel++;
             let sub = recurse(nums.slice(1), field, i + nums[0] + 1);
             indentLevel--;
-            console.log(" ".repeat(4 * indentLevel) + `counting ${sub} at ${i} with len = ${nums[0]}`);
+            debug(" ".repeat(4 * indentLevel) + `counting ${sub} at ${i} with len = ${nums[0]}`);
             count += sub;
         }
     }
@@ -34,8 +56,8 @@ function doTheThing(lines: string[]) {
         const split = line.trim().split(" ").filter(i => i);
         const nums = split[1].split(",").map(x => Number(x));
         const springs = split[0];
-        console.log(nums, springs);
-        console.log(recurse(nums, springs, 0));
+        let res = recurse(nums, springs, 0);
+        console.log(`${springs} ${res}`);
     }
 }
 

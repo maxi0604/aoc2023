@@ -2,9 +2,21 @@ build:
     tsc
 
 run-d1:
-    just run
+    < input.txt just run
 run-d2:
     just run
 
 run:
     node main.js
+
+example:
+    just build
+    < p1in.txt just run | less
+
+debug:
+    just build
+    DEBUG=1 < p1in.txt just run | less
+
+trace:
+    just build
+    TRACE=1 < p1in.txt just run | less
