@@ -6,9 +6,10 @@ const term = rl.createInterface({
 })
 
 function checkFit(field: string, len: number, idx: number) {
-    return !!field.slice(Math.max(idx - 1, 0), Math.min(idx + len + 1, field.length)).match(/^[.?][#?]*[.?]?$/);
+    return !!field.slice(Math.max(idx - 1, 0), Math.min(idx + len + 1, field.length)).match(/^[.?][#?]+[.?]?$/);
 }
 
+let indentLevel = 0;
 function recurse(nums: number[], field: string, idx: number) {
     if (nums.length == 0) {
         return 1;
@@ -17,8 +18,10 @@ function recurse(nums: number[], field: string, idx: number) {
     let count = 0;
     for (let i = idx; i < field.length; ++i) {
         if (checkFit(field, nums[0], i)) {
+            indentLevel++;
             let sub = recurse(nums.slice(1), field, i + nums[0] + 1);
-            console.log(`counting ${sub} at ${i} with len = ${nums[0]}`);
+            indentLevel--;
+            console.log(" ".repeat(4 * indentLevel) + `counting ${sub} at ${i} with len = ${nums[0]}`);
             count += sub;
         }
     }
