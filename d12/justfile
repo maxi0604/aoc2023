@@ -1,0 +1,10 @@
+build:
+    tsc
+
+run-d1:
+    just run
+run-d2:
+    just run
+
+run:
+    node main.js

@@ -1,0 +1,4 @@
+[submodule "d12/allsat"]
+	path = d12/allsat
+	url = git@github.com:marijnheule/allsat.git
+	branch = master
