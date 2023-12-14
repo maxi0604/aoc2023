@@ -11,12 +11,7 @@ function debug(obj: any) {
         console.log(obj);
 }
 
-function trace(obj: any) {
-    if (env.TRACE)
-        console.log(obj);
-}
-
-function checkFit(field: string, len: number, idx: number, last: boolean) {
+function checkFit(field: string, len: number, idx: number) {
     for (let i = idx; i < idx + len; ++i) {
         if (i > field.length || field[i] == '.')
             return false;
@@ -39,11 +34,11 @@ function recurse(nums: number[], field: string, idx: number) {
 
     let count = 0;
     for (let i = idx; i < field.length; ++i) {
-        if (checkFit(field, nums[0], i, nums.length == 1)) {
+        if (checkFit(field, nums[0], i)) {
             indentLevel++;
             let sub = recurse(nums.slice(1), field, i + nums[0] + 1);
             indentLevel--;
-            debug(" ".repeat(4 * indentLevel) + `counting ${sub} at ${i} with len = ${nums[0]}`);
+            debug("\t".repeat(indentLevel) + `counting ${sub} at ${i} with len = ${nums[0]}`);
             count += sub;
         }
     }
@@ -52,13 +47,16 @@ function recurse(nums: number[], field: string, idx: number) {
 
 function doTheThing(lines: string[]) {
     console.log("p1");
+    let sum = 0;
     for (const line of lines) {
         const split = line.trim().split(" ").filter(i => i);
         const nums = split[1].split(",").map(x => Number(x));
         const springs = split[0];
         let res = recurse(nums, springs, 0);
         console.log(`${springs} ${res}`);
+        sum += res;
     }
+    console.log(`sum: ${sum}`);
 }
 
 let lines: string[] = [];
