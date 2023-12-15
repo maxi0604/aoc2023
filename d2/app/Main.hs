@@ -1,7 +1,6 @@
 module Main where
 
 import Data.List
-import Data.Char (isDigit)
 import Data.List.Split
 
 main :: IO ()
