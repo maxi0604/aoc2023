@@ -23,6 +23,8 @@ With descending priority:
 - [x] Julia (d9)
 - [x] Kotlin (d10)
 - [x] Java (d11)
+- [x] TypeScript (d12, p1)
+- [x] Scala (d15, p1)
 ### Ideas
 - [ ] ARM Assembly
 - [ ] Ada
@@ -37,10 +39,9 @@ With descending priority:
 - [ ] Lua
 - [ ] PHP
 - [ ] Pascal
+- [ ] Perl
 - [ ] R
 - [ ] RISC-V Assembly
-- [ ] Scala
-- [ ] TypeScript
 - [ ] Uiua
 - [ ] VHDL
 - [ ] Zig
